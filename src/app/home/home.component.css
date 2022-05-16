@@ -1,0 +1,207 @@
+.container {
+  align-items: center;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  padding-top: 20px;
+  color: rgb(197, 161, 0);
+}
+
+.drink-container {
+  border-style: solid;
+  border-color: black;
+  border-radius: 5px;
+  box-shadow: 5px 3px 3px gray;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.drink-image {
+  max-height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#item-name {
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+}
+
+.btn {
+  border: none;
+  background-color: rgb(238, 199, 71);
+  font-weight: bold;
+}
+
+h1 {
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.circle {
+  border-radius: 50%;
+  height: 180px;
+  align-items: center;
+}
+
+.circle-line {
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  align-items: center;
+  margin: 10px;
+  padding-top: 20px;
+}
+.hr5 {
+  border: 0;
+  border-top: medium double #ccc;
+  height: 1px;
+  overflow: visible;
+  padding: 0px;
+  color: #ccc;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.hr5::after {
+  content: "Most Popular Recipes";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 2.4em;
+  padding: 0 0.3em;
+  background: white;
+  color: black;
+  font-weight: bold;
+}
+
+.hr6 {
+  border: 0;
+  border-top: medium double #ccc;
+  height: 1px;
+  overflow: visible;
+  padding: 0px;
+  color: #ccc;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.hr6::after {
+  content: "Cocktails by Category";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 2.4em;
+  padding: 0 0.3em;
+  background: white;
+  color: black;
+  font-weight: bold;
+}
+
+.circle-line .text {
+  /* visibility: hidden; */
+  position: relative;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: rgb(97, 97, 97);
+  margin-top: 10px;
+}
+
+.hr7 {
+  border: 0;
+  border-top: medium double #ccc;
+  height: 1px;
+  overflow: visible;
+  padding: 0;
+  color: #ccc;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.hr7::after {
+  content: "Featured Recipes";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 2.4em;
+  padding: 0 0.3em;
+  background: white;
+  color: black;
+  font-weight: bold;
+}
+
+.featuredDrink {
+  border-radius: none;
+  height: 300px;
+  margin-bottom: 250px;
+  margin-left: 30px;
+  padding: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  align-items: center;
+}
+
+#featured-name {
+  text-align: left;
+  padding-top: 20px;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+}
+
+#featured-ingredient {
+  font-size: 18px;
+  float: right;
+}
+
+.opening {
+  margin-top: 50px;
+}
+
+#opening {
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(197, 161, 0);
+}
+
+.wine-left {
+  font-size: 50px;
+  float: left;
+  transform: rotate(280deg);
+}
+.wine-right {
+  font-size: 50px;
+  transform: rotate(0deg);
+  float: right;
+}
+
+.card-box {
+  max-width: 300px;
+  height: auto;
+  margin: 100px auto;
+  position: relative;
+  cursor: pointer;
+}
+
+.card-box-front img {
+  min-width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  margin: 5px;
+  background-color: white;
+  border: 2px solid rgb(190, 160, 62);
+  box-shadow: 0px 2px 0 rgb(190, 160, 62), 2px 4px 6px rgb(190, 160, 62);
+  font-weight: bold;
+  color: rgb(190, 160, 62);
+  padding-left: 5px;
+  padding-right: 5px;
+}

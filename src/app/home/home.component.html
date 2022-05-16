@@ -1,0 +1,68 @@
+<!-- Opening Word -->
+<div class="opening">
+  <fa-icon class="wine-left" [icon]="faWine"></fa-icon>
+  <fa-icon class="wine-right" [icon]="faWine"></fa-icon>
+  <p id="opening">
+    Learn how to make great cocktails in the comfort of your own home.
+    <br />Search by recipe name.
+  </p>
+</div>
+
+<div class="container">
+  <div class="search">
+    <input type="text" placeholder="Search" [(ngModel)]="search" />
+    <button (click)="searchDrink(search)">Search</button>
+  </div>
+</div>
+
+<div class="results">
+  <div class = "noResults" *ngIf="cocktailList.length==0 && clicked >0"><h3>No Results Found</h3></div>
+  <div class="row">
+    <div class="col-lg-3" *ngFor="let drink of getMatchingList()">
+      <div class="drink-container">
+        <a
+          [routerLink]="'/cocktails/' + drink.idDrink"
+          (click)="drinkDetail(drink.idDrink); getIngredients(drink)"
+        >
+          <img
+            class="drink-image"
+            src="{{ drink.strDrinkThumb }}"
+            alt="{{ drink.strDrink }}"
+        /></a>
+        <p id="drink-name">{{ drink.strDrink }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Featured Cocktails Headline -->
+<hr class="hr7" />
+<div class="featuredDrink" *ngFor="let featured of myDrinks.slice(5, 8)">
+  <div class="card-box">
+    <div class="card-box-front">
+      <a
+        [routerLink]="'/cocktails/' + featured.idDrink"
+        (click)="drinkDetail(featured.idDrink)"
+      >
+        <img class="featured" src="{{ featured.strDrinkThumb }}" alt=""
+      /></a>
+      <p id="featured-name">{{ featured.strDrink }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- Popular Cocktails Headline -->
+<hr class="hr5" />
+<!-- Display of popular cocktail line with circle images -->
+<div class="container-fluid">
+  <div class="circle-line" *ngFor="let drink of myDrinks.slice(0,5)">
+    <div class="image-dot">
+      <a
+        [routerLink]="'/cocktails/' + drink.idDrink"
+        (click)="drinkDetail(drink.idDrink)"
+        ><img class="circle" src="{{ drink.strDrinkThumb }}" alt=""
+      /></a>
+      <p class="text">{{ drink.strDrink }}</p>
+    </div>
+  </div>
+</div>

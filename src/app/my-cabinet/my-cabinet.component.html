@@ -1,0 +1,9 @@
+<h1>My Cabinet</h1>
+<div class = "row">
+  <div class = "col-lg-3" *ngFor = "let item of myCabinet; let i = index">
+    <div class = "drink-container">
+      <p id = "item-name"> {{ item.strIngredient1 }}</p>
+      <button class = "btn" (click) = "onRemoveFromCabinet(item, i)"> Remove from Cabinet </button>
+    </div>
+  </div>
+</div>

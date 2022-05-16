@@ -1,0 +1,50 @@
+.favoriteIcon {
+  float: right;
+}
+
+.drink-container {
+  border-style: solid;
+  border-color: black;
+  border-radius: 5px;
+  box-shadow: 5px 3px 3px  gray;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.drink-image {
+  max-height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#drink-name {
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+}
+span {
+  color: rgba(212, 193, 18, 0.884);
+  font-size: 300%;
+}
+
+button.selected {
+  border: none;
+  background-color: transparent;
+}
+
+.selectedButton {
+  text-align: center;
+}
+
+button.star {
+  color: rgb(238, 199, 71);
+  border: none;
+  background-color: transparent;
+  font-size: 2vw;
+}
+
+h1 {
+  font-weight: bold;
+}

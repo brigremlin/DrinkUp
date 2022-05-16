@@ -1,0 +1,14 @@
+<app-letter-bar></app-letter-bar>
+<div class="container-title">
+<!-- Popular Cocktails Headline -->
+<hr class="hr5" />
+</div>
+
+
+<div class="container">
+<div class="row">
+  <div class="col-lg-3" *ngFor="let drink of myDrinks; let index = i" >
+    <app-drink-item [drink]="drink" [index]="i"></app-drink-item>
+  </div>
+</div>
+</div>

@@ -1,0 +1,26 @@
+a {
+  color: rgb(199, 175, 40);
+}
+
+.hr5 {
+  margin: 5%;
+  border: 0;
+  border-top: medium double #ccc;
+  height: 1px;
+  overflow: visible;
+  padding: 0;
+  color: #ccc;
+  text-align: center;
+}
+
+.hr5::after {
+  content: "Most Popular Recipes";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 5vmin;
+  padding: 0 0.3em;
+  background: white;
+  color: black;
+  font-weight: bold;
+}

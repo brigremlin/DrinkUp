@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  cocktailDBKey: '9973533'
 };

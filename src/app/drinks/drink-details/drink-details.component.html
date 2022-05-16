@@ -1,0 +1,13 @@
+<div class = "container" *ngIf="singleDrink">
+
+  <img src="{{singleDrink.strDrinkThumb}}" alt="">
+  <h1>{{singleDrink.strDrink}}</h1>
+  <br>
+  <h2>Ingredients</h2>
+  <br>
+  <div class="col" *ngFor="let ingredient of ingredients">
+      <p> {{ingredient.amount}} -- {{ingredient.name}}</p>
+  </div>
+  <h2>Instructions</h2>
+  <p>{{singleDrink.strInstructions}}</p>
+</div>

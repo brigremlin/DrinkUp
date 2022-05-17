@@ -19,12 +19,14 @@ export class DrinkItemComponent {
   constructor(private favoriteService: FavoriteService, private drinkService: DrinkService) {}
 
   onFavoritedDrinks(drink: Drink) {
-    this.isFavorited = this.favoriteService.isFavorited(drink);
-    if (!this.favoriteService.isFavorited(drink)) {
-      this.favoriteService.favoriteList.push(drink);
-    } else {
-      this.favoriteService.favoriteList.splice(this.index, 1);
-    }
+    this.favoriteService.favoriteDrink(drink);
+    console.log(drink + "favorites")
+    // this.isFavorited = this.favoriteService.isFavorited(drink);
+    // if (!this.favoriteService.isFavorited(drink)) {
+    //   this.favoriteService.favoriteList.push(drink);
+    // } else {
+    //   this.favoriteService.favoriteList.splice(this.index, 1);
+    // }
   }
 
   drinkDetail(id: string) {

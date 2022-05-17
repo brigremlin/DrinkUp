@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthComponent } from './auth/auth.component';
+import { SessionGuard } from './auth/session.guard';
 import { BarComponent } from './bar/bar/bar.component';
 import { DrinkDetailsComponent } from './drinks/drink-details/drink-details.component';
 import { DrinkListComponent } from './drinks/drink-list/drink-list.component';
@@ -68,6 +70,10 @@ const appRoutes: Routes = [
   { path: 'x', component: XComponent},
   { path: 'y', component: YComponent},
   { path: 'z', component: ZComponent},
+  { path: 'auth',
+    canActivate: [SessionGuard],
+    component: AuthComponent
+ }
 ];
 
 

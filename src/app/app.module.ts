@@ -45,6 +45,7 @@ import { LetterBarComponent } from './letter-bar/letter-bar.component';
 import { MyCabinetComponent } from './my-cabinet/my-cabinet.component';
 import { BarComponent } from './bar/bar/bar.component';
 import { MyBarService } from './bar/bar/my-bar.service';
+import { AuthComponent } from './auth/auth.component';
 
 
 @NgModule({
@@ -84,7 +85,8 @@ import { MyBarService } from './bar/bar/my-bar.service';
     XComponent,
     YComponent,
     ZComponent,
-    LetterBarComponent
+    LetterBarComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

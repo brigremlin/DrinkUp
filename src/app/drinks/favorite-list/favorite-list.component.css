@@ -31,3 +31,26 @@ h1 {
   font-weight: bold;
   margin-top: 50px;
 }
+
+.hr6 {
+  border: 0;
+  border-top: medium double #ccc;
+  height: 1px;
+  overflow: visible;
+  padding: 0;
+  color: #ccc;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.hr6::after {
+  content: "Favorites List";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 4vmin;
+  padding: 0 0.3em;
+  background: white;
+  color: black;
+  font-weight: bold;
+}

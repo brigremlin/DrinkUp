@@ -139,11 +139,8 @@ h1 {
   border-radius: none;
   height: 300px;
   margin-bottom: 250px;
-  margin-left: 30px;
   padding: 10px;
   display: inline-block;
-  vertical-align: middle;
-  align-items: center;
 }
 
 #featured-name {
@@ -173,11 +170,11 @@ h1 {
 .wine-left {
   font-size: 50px;
   float: left;
-  transform: rotate(280deg);
+  transform: rotate(340deg);
 }
 .wine-right {
   font-size: 50px;
-  transform: rotate(0deg);
+  transform: rotate(20deg);
   float: right;
 }
 

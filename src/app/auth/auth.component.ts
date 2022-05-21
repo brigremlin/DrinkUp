@@ -43,6 +43,7 @@ export class AuthComponent {
         console.log(resData);
             if(this.isLoginMode) {
               this.isLoginMode = !this.isLoginMode;
+              this.router.navigate(['/cocktails'])
        }
     },
     error: (err) => {

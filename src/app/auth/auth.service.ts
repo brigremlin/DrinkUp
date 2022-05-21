@@ -25,6 +25,7 @@ export class AuthService {
   user = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
   isLoggedIn = false;
+  currentUser: User;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -48,6 +49,7 @@ export class AuthService {
           const { email, id } = res.payload.user;
 
           const expiresIn = new Date(expiry).getTime() - Date.now();
+          console.log("THIS EXECUTES", email, value)
           this.handleAuth(email, id, value, +expiresIn);
         })
       );
@@ -59,31 +61,32 @@ export class AuthService {
   //         Authorization: `Bearer ${token}`, //implements bearer token into authorization header
   //       });
 
-  // autoLogin() {
-  //   const userData: {
-  //     email: string;
-  //     id: string;
-  //     _token: string;
-  //     _tokenExpirationDate: string;
-  //   } = JSON.parse(localStorage.getItem('userData'));
-  //   if (!userData) {
-  //     return;
-  //   }
+  autoLogin() {
+    const userData: {
+      email: string;
+      id: string;
+      _token: string;
+      _tokenExpirationDate: string;
+    } = JSON.parse(localStorage.getItem('userData'));
+    if (!userData) {
+      return;
+    }
 
-  //   const loadedUser = new User(
-  //     userData.email,
-  //     userData.id,
-  //     userData._token,
-  //     new Date(userData._tokenExpirationDate)
-  //   );
+    const loadedUser = new User(
+      userData.email,
+      userData.id,
+      userData._token,
+      new Date(userData._tokenExpirationDate)
+    );
 
-  //   if (loadedUser.token) {
-  //     this.user.next(loadedUser);
-  //     const expirationDuration =
-  //       new Date(userData._tokenExpirationDate).getTime() -
-  //       new Date().getTime();
-  //   }
-  // }
+    if (loadedUser.token) {
+      this.user.next(loadedUser);
+      this.currentUser = loadedUser;
+      const expirationDuration =
+        new Date(userData._tokenExpirationDate).getTime() -
+        new Date().getTime();
+    }
+  }
 
   logout() {
     this.http.delete('https://drinkup-base-api.herokuapp.com/api/v1/users/logout').subscribe((res: any) => {
@@ -111,6 +114,7 @@ export class AuthService {
     // Create a new user based on the info passed in . . . and emit that user
     const formUser = new User(email, userId, token, expDate);
     this.user.next(formUser);
+    this.currentUser = formUser;
 
     // Set a new timer for expiration token
 

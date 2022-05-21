@@ -2,24 +2,37 @@ import { Drink } from "../shared/drink.model";
 
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Subject } from "rxjs";
+import { map, Observable, Subject, tap } from "rxjs";
 import { Token } from "@angular/compiler";
+import { AuthService } from "../auth/auth.service";
 
 interface ResponseData {
   token: { expiry: string; value: string };
 }
 
+interface FavoritesResponse {
+  payload: { id: number; idDrink: string, strDrink:string, strDrinkThumb: string };
+}
+
 @Injectable()
-export class FavoriteService {
-  constructor(private http: HttpClient) {}
+export class FavoriteService{
+  constructor(private http: HttpClient, private authService: AuthService) {}
+  favoriteList;
 
-  favoriteList: Drink[] = [];
-  drinkSelected = new Subject<Drink>();
-  drinkListChanged = new Subject<Drink[]>();
 
-  getFavorites() {
-    return this.favoriteList.slice();
-  }
+  getFavorites(){
+    const token = this.authService.currentUser._token
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    })
+    return this.http.get<any>("https://drinkup-base-api.herokuapp.com/api/v1/favorites/my_favorites", {headers: headers})
+    // .subscribe(res => {
+    //     console.log("Fetching favorites", res.payload)
+    //     this.favoriteList = res.payload
+    //     console.log(this.favoriteList)
+    // });
+    }
 
   isFavorited(drink: Drink){
     if(this.favoriteList.includes(drink)){
@@ -28,25 +41,25 @@ export class FavoriteService {
     return false;
   }
 
-  favoriteDrink(drink) {
-    this.http.post<ResponseData>("https://drinkup-base-api.herokuapp.com/api/v1/users/login", {
-      email: "123@test.com",
-      password: "password"
-    }).subscribe((data) => {
-      console.log(data)
-      const token = data.token
-      console.log(token)
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: `Bearer  + ${token}`
-      })
-      console.log(headers)
-      this.http.post("https://drinkup-base-api.herokuapp.com/api/v1/favorites", drink, {headers: headers}).subscribe((res) => {
-        console.log(res)
-      }
-    )
-    });
+  deleteDrink(id) {
+    const token = this.authService.currentUser._token
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    })
+    return this.http.delete("https://drinkup-base-api.herokuapp.com/api/v1/favorites/${id}", id)
   }
 
-}
+  favoriteDrink(drink) {
+    const token = this.authService.currentUser._token
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      })
+      return this.http.post("https://drinkup-base-api.herokuapp.com/api/v1/favorites", drink, {headers: headers})
+    }
+
+  }
+
+
 

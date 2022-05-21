@@ -1,5 +1,7 @@
 import { Component, Injectable, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Drink } from 'src/app/shared/drink.model';
+import { DrinkService } from '../drink.service';
 import { FavoriteService } from '../favorite.service';
 
 
@@ -11,17 +13,27 @@ import { FavoriteService } from '../favorite.service';
 })
 
 export class FavoriteListComponent implements OnInit {
-  favoritesList: Drink[] = [];
+  favoritesList;
 
-  constructor(private favoriteService: FavoriteService) { }
+  constructor(private favoriteService: FavoriteService, private drinkService: DrinkService) { }
 
   ngOnInit() {
-    this.favoritesList = this.favoriteService.favoriteList;
-
+    this.favoriteService.getFavorites().subscribe((res) => {
+      this.favoritesList = res.payload
+      console.log(this.favoritesList)
+    })
   }
 
-  onRemoveFromFavorites(drink:Drink, i: number) {
-    this.favoritesList.splice(i,1)
+  onRemoveFromFavorites(id) {
+    this.favoriteService.deleteDrink(id).subscribe((res) => {
+        console.log("Removed " + id)
+    })
   }
+
+  drinkDetails(id: string) {
+    console.log(id);
+    this.drinkService.getAlcoholicCocktail(id);
+  }
+
 
 }

@@ -33,6 +33,7 @@ import { XComponent } from './letter-pages/x/x.component';
 import { YComponent } from './letter-pages/y/y.component';
 import { ZComponent } from './letter-pages/z/z.component';
 import { MyCabinetComponent } from './my-cabinet/my-cabinet.component';
+import { ProfileComponent } from './users/profile/profile.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
@@ -71,7 +72,8 @@ const appRoutes: Routes = [
   { path: 'z', component: ZComponent},
   { path: 'auth',
     component: AuthComponent
- }
+ },
+ { path: 'user', component: ProfileComponent }
 ];
 
 

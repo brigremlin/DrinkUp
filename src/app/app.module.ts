@@ -46,6 +46,7 @@ import { MyCabinetComponent } from './my-cabinet/my-cabinet.component';
 import { BarComponent } from './bar/bar/bar.component';
 import { MyBarService } from './bar/bar/my-bar.service';
 import { AuthComponent } from './auth/auth.component';
+import { ProfileComponent } from './users/profile/profile.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { AuthComponent } from './auth/auth.component';
     YComponent,
     ZComponent,
     LetterBarComponent,
-    AuthComponent
+    AuthComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

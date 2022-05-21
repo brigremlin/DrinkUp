@@ -13,20 +13,27 @@ export class DrinkItemComponent {
   @Input() id;
   @Input() drinkId;
   ingredients: string[] = [];
+  favoriteList = [];
 
   isFavorited = false;
 
   constructor(private favoriteService: FavoriteService, private drinkService: DrinkService) {}
 
   onFavoritedDrinks(drink: Drink) {
-    this.favoriteService.favoriteDrink(drink);
-    console.log(drink + "favorites")
-    // this.isFavorited = this.favoriteService.isFavorited(drink);
-    // if (!this.favoriteService.isFavorited(drink)) {
-    //   this.favoriteService.favoriteList.push(drink);
-    // } else {
-    //   this.favoriteService.favoriteList.splice(this.index, 1);
-    // }
+    this.favoriteService.getFavorites().subscribe((data) => {
+      this.favoriteList = data.payload
+      console.log(drink.idDrink)
+      for (let i = 0; i < this.favoriteList.length; i++) {
+        if(this.favoriteList[i].idDrink == drink.idDrink){
+          break;
+        } else {
+          this.favoriteService.favoriteDrink(drink).subscribe((data) => {
+            console.log(data)
+          })
+          break;
+        }
+      }
+    })
   }
 
   drinkDetail(id: string) {

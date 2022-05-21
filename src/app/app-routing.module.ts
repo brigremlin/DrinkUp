@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
-import { SessionGuard } from './auth/session.guard';
 import { BarComponent } from './bar/bar/bar.component';
 import { DrinkDetailsComponent } from './drinks/drink-details/drink-details.component';
 import { DrinkListComponent } from './drinks/drink-list/drink-list.component';
@@ -34,6 +33,7 @@ import { XComponent } from './letter-pages/x/x.component';
 import { YComponent } from './letter-pages/y/y.component';
 import { ZComponent } from './letter-pages/z/z.component';
 import { MyCabinetComponent } from './my-cabinet/my-cabinet.component';
+import { ProfileComponent } from './users/profile/profile.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
@@ -71,9 +71,9 @@ const appRoutes: Routes = [
   { path: 'y', component: YComponent},
   { path: 'z', component: ZComponent},
   { path: 'auth',
-    canActivate: [SessionGuard],
     component: AuthComponent
- }
+ },
+ { path: 'user', component: ProfileComponent }
 ];
 
 

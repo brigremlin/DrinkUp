@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, throwError } from 'rxjs';
+import { BehaviorSubject, tap, throwError } from 'rxjs';
 import { User } from './user.model';
 
 const SIGN_UP_URL =
@@ -25,6 +25,7 @@ export class AuthService {
   user = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
   isLoggedIn = false;
+  currentUser: User;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -38,13 +39,27 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this.http
-      .post<any>(SIGN_IN_URL,
-        {
-          email: email,
-          password: password
-        }
-      )
+      .post<any>(SIGN_IN_URL, {
+        email,
+        password,
+      })
+      .pipe(
+        tap((res) => {
+          const { expiry, value } = res.payload.token;
+          const { email, id } = res.payload.user;
+
+          const expiresIn = new Date(expiry).getTime() - Date.now();
+          console.log("THIS EXECUTES", email, value)
+          this.handleAuth(email, id, value, +expiresIn);
+        })
+      );
   }
+
+  // const token = data.payload.access_token; //holds retrieved bearer token
+  //       const headers = new HttpHeaders({
+  //         'Content-Type': 'application/json',
+  //         Authorization: `Bearer ${token}`, //implements bearer token into authorization header
+  //       });
 
   autoLogin() {
     const userData: {
@@ -66,10 +81,10 @@ export class AuthService {
 
     if (loadedUser.token) {
       this.user.next(loadedUser);
+      this.currentUser = loadedUser;
       const expirationDuration =
         new Date(userData._tokenExpirationDate).getTime() -
         new Date().getTime();
-      this.autoLogout(expirationDuration);
     }
   }
 
@@ -92,35 +107,20 @@ export class AuthService {
     }, expirationDuration);
   }
 
-  private handleAuthentication(
-    email: string,
-    userId: string,
-    token: string,
-    expiresIn: number
-  ) {
-    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
-    const user = new User(email, userId, token, expirationDate);
-    this.user.next(user);
-    this.autoLogout(expiresIn * 1000);
-    localStorage.setItem('userData', JSON.stringify(user));
+  handleAuth(email: string, userId: string, token: string, expiresIn: number) {
+    // Create Expiration Date for Token
+    const expDate = new Date(new Date().getTime() + expiresIn * 1000);
+
+    // Create a new user based on the info passed in . . . and emit that user
+    const formUser = new User(email, userId, token, expDate);
+    this.user.next(formUser);
+    this.currentUser = formUser;
+
+    // Set a new timer for expiration token
+
+    // Save the new user to localStorage
+    localStorage.setItem('userData', JSON.stringify(formUser));
   }
 
-  private handleError(errorRes: HttpErrorResponse) {
-    let errorMessage = 'An unknown error occurred!';
-    if (!errorRes.error || !errorRes.error.error) {
-      return throwError(errorMessage);
-    }
-    switch (errorRes.error.error.message) {
-      case 'EMAIL_EXISTS':
-        errorMessage = 'This email exists already';
-        break;
-      case 'EMAIL_NOT_FOUND':
-        errorMessage = 'This email does not exist.';
-        break;
-      case 'INVALID_PASSWORD':
-        errorMessage = 'This password is not correct.';
-        break;
-    }
-    return throwError(errorMessage);
-  }
+
 }

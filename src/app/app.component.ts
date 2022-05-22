@@ -8,6 +8,8 @@ import { AuthService } from './auth/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'DrinkUp';
+  splashPage = true;
+  ageVerified = true;
 
   constructor(private authService: AuthService) {}
 

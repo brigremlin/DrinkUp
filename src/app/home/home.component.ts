@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   clicked: number;
   faWine = faBeerMugEmpty
 
+
   ngOnInit() {
     this.subscription = this.drinkService.getDrinks().subscribe((drinks) => {
       this.myDrinks = drinks;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faWineBottle } from '@fortawesome/free-solid-svg-icons';
 import { faBeer } from '@fortawesome/free-solid-svg-icons';
@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   faBeer = faBeer;
   faWhiskey = faGlassWhiskey;
   collapsed = true;
+  @Input() ageVerified;
 
   constructor(private authService: AuthService) { }
 

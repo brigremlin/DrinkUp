@@ -14,7 +14,10 @@ nav {
 }
 
 .header-container {
+  background-color: black;
   background-image: url("../../assets/jackDanielsClose.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 480px;
   opacity: 90%;
   margin: 0px;

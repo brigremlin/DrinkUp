@@ -22,6 +22,8 @@ export class BarComponent implements OnInit {
   searchSubscription: Subscription;
   imagePath = "www.thecocktaildb.com/images/ingredients/"
   imagePathEnd = "-Small.png"
+  p=1
+  count;
 
   constructor(
     private pantryService: PantryService,
@@ -33,6 +35,7 @@ export class BarComponent implements OnInit {
       .getIngredients()
       .subscribe((ingredients) => {
         this.myBar = ingredients;
+        this.count = ingredients.length;
         this.myBar.forEach((element) => {
           this.name = element.strIngredient;
         });
@@ -44,5 +47,9 @@ export class BarComponent implements OnInit {
     if (!this.myCabinet.includes(pantry)) {
       this.myCabinet.push(pantry);
     }
+  }
+
+  onTableDataChange(event: any) {
+    this.p = event;
   }
 }

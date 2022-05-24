@@ -40,4 +40,7 @@ export class AComponent implements OnInit {
     }
   }
 
+  onTableDataChange(event: any) {
+    this.p = event;
+  }
 }

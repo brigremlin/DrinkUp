@@ -1,3 +1,4 @@
+<!-- <div class="container">
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <div class="alert alert-danger" *ngIf="error">
@@ -47,4 +48,44 @@
     </form>
   </div>
 </div>
-
+</div> -->
+<div class="container">
+  <p class="text-align error mb-5" *ngIf="error"> There was an error with your email or password. Please try again</p>
+<form class="login" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+  <h1 class="text-center" *ngIf="isLoginMode">Welcome Back!</h1>
+  <h1 class="text-center" *ngIf="!isLoginMode">Sign Up!</h1>
+  <button class="login-button text-center"(click)="onSwitchMode()" *ngIf="isLoginMode">Ready to join? Sign up here</button>
+  <button class="login-button text-center"(click)="onSwitchMode()" *ngIf="!isLoginMode">Already have an account? Log in here</button>
+  <div class="mb-5 mt-5">
+    <label for="email" class="form-label">Email address</label>
+    <input
+    type="email"
+    id="email"
+    class="form-control"
+    ngModel
+    name="email"
+    required
+    email
+    />
+  </div>
+  <div class="mb-5">
+    <label for="password" class="form-label">Password</label>
+    <input    type="password"
+    id="password"
+    class="form-control"
+    ngModel
+    name="password"
+    required
+    minlength="6" />
+  </div>
+  <div class="mb-3 form-check">
+    <button
+    class="btn w-100"
+    type="submit"
+    [disabled]="!authForm.valid"
+  >
+    {{ isLoginMode ? 'Login' : 'Sign Up' }}
+  </button>
+  </div>
+</form>
+</div>

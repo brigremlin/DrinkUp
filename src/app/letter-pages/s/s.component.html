@@ -2,7 +2,20 @@
 <h1>"S" Cocktails</h1>
 
 <div class="row">
-  <div class="col-lg-3" *ngFor="let drink of sDrinks; let index = i">
+  <div class="col-lg-3" *ngFor="let drink of sDrinks  | paginate
+  : {
+      itemsPerPage: 12,
+      currentPage: p,
+      totalItems: count
+    }; let index = i">
     <app-drink-item [drink]="drink" [index]="i"></app-drink-item>
+  </div>
+  <div class="d-flex justify-content-center">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
   </div>
 </div>

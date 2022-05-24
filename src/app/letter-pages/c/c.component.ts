@@ -15,6 +15,8 @@ export class CComponent implements OnInit {
   @Input() drink;
   @Input() index;
   isFavorited = false;
+  p=1;
+  count
 
   constructor(
     private drinkService: DrinkService,
@@ -25,6 +27,7 @@ export class CComponent implements OnInit {
     this.subscription = this.drinkService.getC().subscribe((drinks) => {
       console.log(drinks);
       this.cDrinks = drinks;
+      this.count = drinks.length
     });
   }
 
@@ -36,5 +39,9 @@ export class CComponent implements OnInit {
     } else {
       this.favoriteService.favoriteList.splice(this.index, 1);
     }
+  }
+
+  onTableDataChange(event: any) {
+    this.p = event;
   }
 }

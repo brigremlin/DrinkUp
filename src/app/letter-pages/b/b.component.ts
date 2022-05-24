@@ -17,6 +17,8 @@ export class BComponent implements OnInit {
   @Input() drink;
   @Input() index;
   isFavorited= false;
+  p=1;
+  count
 
   constructor(private drinkService: DrinkService, private favoriteService: FavoriteService) { }
 
@@ -24,6 +26,7 @@ export class BComponent implements OnInit {
     this.subscription = this.drinkService.getB().subscribe((drinks) => {
       console.log(drinks);
       this.bDrinks = drinks;
+      this.count = drinks.length
     });
   }
 
@@ -35,6 +38,10 @@ export class BComponent implements OnInit {
     } else {
       this.favoriteService.favoriteList.splice(this.index, 1);
     }
+  }
+
+  onTableDataChange(event: any) {
+    this.p = event;
   }
 
 }

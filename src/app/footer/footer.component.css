@@ -1,0 +1,12 @@
+:host {
+    position: relative;
+    margin-bottom: -10px;
+}
+
+footer {
+    background-color: rgb(190, 160, 62);
+}
+
+img {
+    max-width: 20em;
+}

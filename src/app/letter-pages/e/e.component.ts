@@ -17,6 +17,8 @@ export class EComponent implements OnInit {
   @Input() drink;
   @Input() index;
   isFavorited = false;
+  p=1;
+  count;
 
   constructor(
     private drinkService: DrinkService,
@@ -27,6 +29,7 @@ export class EComponent implements OnInit {
     this.subscription = this.drinkService.getE().subscribe((drinks) => {
       console.log(drinks);
       this.eDrinks = drinks;
+      this.count = drinks.length
     });
   }
 
@@ -38,5 +41,9 @@ export class EComponent implements OnInit {
     } else {
       this.favoriteService.favoriteList.splice(this.index, 1);
     }
+  }
+
+  onTableDataChange(event: any) {
+    this.p = event;
   }
 }

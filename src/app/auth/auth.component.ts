@@ -38,19 +38,30 @@ export class AuthComponent {
     } else {
       this.authObs = this.authService.signup(email, password);
     }
-    this.authObs.subscribe({
-      next: (resData) => {
-        console.log(resData);
-            if(this.isLoginMode) {
-              this.isLoginMode = !this.isLoginMode;
-              this.router.navigate(['/cocktails'])
-       }
-    },
-    error: (err) => {
-        console.log(err);
-        this.error = err;
-    }
-  })
+  //   this.authObs.subscribe({
+  //     next: (resData) => {
+  //       console.log(resData);
+  //           if(this.isLoginMode) {
+  //             this.isLoginMode = !this.isLoginMode;
+  //             this.router.navigate(['/cocktails'])
+  //      }
+  //   },
+  //   error: (err) => {
+  //       console.log(err);
+  //       this.error = err;
+  //   }
+  // })
+  this.authObs.subscribe(resData => {
+    console.log(resData);
+    if(this.isLoginMode) {
+      this.isLoginMode = !this.isLoginMode;
+      this.router.navigate(['/cocktails'])
+  }
+  }, error => {
+    console.log(error)
+    this.error = error;
+  }
+  )
     form.reset();
   }
 }

@@ -11,33 +11,33 @@
 <div class="container">
   <div class="search">
     <input type="text" placeholder="Search" [(ngModel)]="search" />
-    <button (click)="searchDrink(search)">Search</button>
+    <button class="search-button" (click)="searchDrink(search)">Search</button>
   </div>
 </div>
 
-<div class="results">
-  <div class = "noResults text-center mt-3" *ngIf="cocktailList.length==0 && clicked >0"><h3>No Results Found</h3></div>
-  <div class="row">
-    <div class="col-lg-3" *ngFor="let drink of getMatchingList()">
-      <div class="drink-container">
-        <a
-          [routerLink]="'/cocktails/' + drink.idDrink"
-          (click)="drinkDetail(drink.idDrink); getIngredients(drink)"
-        >
-          <img
-            class="drink-image"
-            src="{{ drink.strDrinkThumb }}"
-            alt="{{ drink.strDrink }}"
-        /></a>
-        <p id="drink-name">{{ drink.strDrink }}</p>
+  <div class="results">
+    <div class = "noResults text-center mt-3" *ngIf="cocktailList.length==0 && clicked >0"><h3>No Results Found</h3></div>
+    <div class="search-grid">
+        <div class="search-container" *ngFor="let drink of getMatchingList()">
+          <div class="search-box">
+          <a
+            [routerLink]="'/cocktails/' + drink.idDrink"
+            (click)="drinkDetail(drink.idDrink); getIngredients(drink)"
+          >
+            <img
+              class="search-image"
+              src="{{ drink.strDrinkThumb }}"
+              alt="{{ drink.strDrink }}"
+          /></a>
+          <p class="search-name">{{ drink.strDrink }}</p>
+        </div>
+        </div>
       </div>
-    </div>
   </div>
-</div>
 
 <!-- Featured Cocktails Headline -->
 <hr class="hr7" />
-<div class="drink-container">
+<div class="drink-container mb-5">
   <div class="drink-box">
     <div class="panel">
     <div class="content">
@@ -79,35 +79,26 @@
   </div>
 </div>
 
-<div class="banners">
+<div class="banners mt-5">
+  <button class="banner-button" (click)="getPineapple()">
   <div class="middle-pineapple">
     <h1 class="middle-font">Pineapple</h1>
   </div>
+  </button>
+<button class="banner-button" (click)="getLime()">
 <div class="middle-lime">
   <h1 class="middle-font">Lime</h1>
 </div>
+</button>
+<button class="banner-button" (click)="getChocolate()">
 <div class="middle-chocolate">
   <h1 class="middle-font">Chocolate</h1>
 </div>
+</button>
+<button class="banner-button" (click)="getApple()">
 <div class="middle-apples">
   <h1 class="middle-font">Apple</h1>
 </div>
+</button>
 </div>
 
-<!-- Popular Cocktails Headline -->
-<!-- <div class="container">
-<hr class="hr5" />
-
-<div class="container-fluid">
-  <div class="circle-line" *ngFor="let drink of myDrinks.slice(0,5)">
-    <div class="image-dot">
-      <a
-        [routerLink]="'/cocktails/' + drink.idDrink"
-        (click)="drinkDetail(drink.idDrink)"
-        ><img class="circle" src="{{ drink.strDrinkThumb }}" alt=""
-      /></a>
-      <p class="text">{{ drink.strDrink }}</p>
-    </div>
-  </div>
-</div>
-</div> -->

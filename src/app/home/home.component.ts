@@ -69,4 +69,29 @@ export class HomeComponent implements OnInit {
 
     return matchingCocktail;
   }
+
+  getPineapple(){
+      this.drinkService.getCocktailsByName("pineapple").then((res) => {
+        this.cocktailList = res;
+        console.log(res)
+      });
+  }
+  getLime(){
+    this.drinkService.getCocktailsByName("lime").then((res) => {
+      this.cocktailList = res;
+      console.log(res)
+    });
+}
+getChocolate(){
+  this.drinkService.getCocktailsByName("chocolate").then((res) => {
+    this.cocktailList = res;
+    console.log(res)
+  });
+}
+getApple(){
+  this.drinkService.getCocktailsByName("apple").then((res) => {
+    this.cocktailList = res;
+    console.log(res)
+  });
+}
 }

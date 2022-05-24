@@ -3,6 +3,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faWineBottle } from '@fortawesome/free-solid-svg-icons';
 import { faBeer } from '@fortawesome/free-solid-svg-icons';
 import { faGlassWhiskey } from '@fortawesome/free-solid-svg-icons';
+import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
@@ -19,10 +20,20 @@ export class HeaderComponent implements OnInit {
   collapsed = true;
   @Input() ageVerified;
   dropdown = true;
+  isLoggedIn = false;
+  userSub: Subscription
 
   constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    console.log(this.isLoggedIn)
+    this.userSub = this.authService.user.subscribe(user => {
+      console.log(user)
+      if(user){
+        this.isLoggedIn = !this.isLoggedIn;
+        console.log(this.isLoggedIn)
+      }
+    })
   }
 
   onLogout(){

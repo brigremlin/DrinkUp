@@ -43,3 +43,12 @@ p {
   margin-right: 100px;
   bottom: 200px !important;
 }
+
+.drink-name {
+  font-family: "AmberWhiskey-Aged";
+  font-size: 4rem;
+}
+
+.favorites {
+  bottom: 0 !important;
+}

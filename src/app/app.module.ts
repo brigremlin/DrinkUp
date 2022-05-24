@@ -48,6 +48,7 @@ import { MyBarService } from './bar/bar/my-bar.service';
 import { AuthComponent } from './auth/auth.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -89,7 +90,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ZComponent,
     LetterBarComponent,
     AuthComponent,
-    ProfileComponent
+    ProfileComponent,
+    FooterComponent
   ],
   imports: [
     NgxPaginationModule,

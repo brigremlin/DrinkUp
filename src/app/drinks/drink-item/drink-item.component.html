@@ -1,7 +1,5 @@
 <div class="drink-container">
   <div class="drink-box">
-    <div class="panel">
-    <div class="content">
       <a
         [routerLink]="'/cocktails/' + drink.idDrink"
         (click)="drinkDetail(drink.idDrink); getIngredients(drink)"
@@ -17,7 +15,5 @@
         {{ isFavorited ? "&#9733;" : "&#9734;" }}
       </button> -->
     </div>
-    </div>
-  </div>
 </div>
 <router-outlet></router-outlet>

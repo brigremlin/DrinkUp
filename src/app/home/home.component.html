@@ -1,5 +1,4 @@
 <!-- Opening Word -->
-<div class="div">
 <div class="opening">
   <fa-icon class="wine-left" [icon]="faWine"></fa-icon>
   <fa-icon class="wine-right" [icon]="faWine"></fa-icon>
@@ -17,7 +16,7 @@
 </div>
 
 <div class="results">
-  <div class = "noResults" *ngIf="cocktailList.length==0 && clicked >0"><h3>No Results Found</h3></div>
+  <div class = "noResults text-center mt-3" *ngIf="cocktailList.length==0 && clicked >0"><h3>No Results Found</h3></div>
   <div class="row">
     <div class="col-lg-3" *ngFor="let drink of getMatchingList()">
       <div class="drink-container">
@@ -38,23 +37,67 @@
 
 <!-- Featured Cocktails Headline -->
 <hr class="hr7" />
-<div class="featuredDrink" *ngFor="let featured of myDrinks.slice(5, 8)">
-  <div class="card-box">
-    <div class="card-box-front">
+<div class="drink-container">
+  <div class="drink-box">
+    <div class="panel">
+    <div class="content">
       <a
-        [routerLink]="'/cocktails/' + featured.idDrink"
-        (click)="drinkDetail(featured.idDrink)"
+        [routerLink]="'/cocktails/' + drinkOne.idDrink"
+        (click)="drinkDetail(drinkOne.idDrink)"
       >
-        <img class="featured" src="{{ featured.strDrinkThumb }}" alt=""
+        <img class="featured" src="{{ drinkOne.strDrinkThumb }}" alt=""
       /></a>
-      <p id="featured-name">{{ featured.strDrink }}</p>
+      <p id="featured-name">{{ drinkOne.strDrink }}</p>
+    </div>
+    </div>
+  </div>
+  <div class="drink-box">
+    <div class="panel">
+    <div class="content">
+      <a
+        [routerLink]="'/cocktails/' + drinkTwo.idDrink"
+        (click)="drinkDetail(drinkTwo.idDrink)"
+      >
+        <img class="featured" src="{{ drinkTwo.strDrinkThumb }}" alt=""
+      /></a>
+      <p id="featured-name">{{ drinkTwo.strDrink }}</p>
+    </div>
+    </div>
+  </div>
+  <div class="drink-box">
+    <div class="panel">
+    <div class="content">
+      <a
+        [routerLink]="'/cocktails/' + drinkThree.idDrink"
+        (click)="drinkDetail(drinkThree.idDrink)"
+      >
+        <img class="featured" src="{{ drinkThree.strDrinkThumb }}" alt=""
+      /></a>
+      <p id="featured-name">{{ drinkThree.strDrink }}</p>
+    </div>
     </div>
   </div>
 </div>
 
+<div class="banners">
+  <div class="middle-pineapple">
+    <h1 class="middle-font">Pineapple</h1>
+  </div>
+<div class="middle-lime">
+  <h1 class="middle-font">Lime</h1>
+</div>
+<div class="middle-chocolate">
+  <h1 class="middle-font">Chocolate</h1>
+</div>
+<div class="middle-apples">
+  <h1 class="middle-font">Apple</h1>
+</div>
+</div>
+
 <!-- Popular Cocktails Headline -->
+<!-- <div class="container">
 <hr class="hr5" />
-<!-- Display of popular cocktail line with circle images -->
+
 <div class="container-fluid">
   <div class="circle-line" *ngFor="let drink of myDrinks.slice(0,5)">
     <div class="image-dot">
@@ -67,4 +110,4 @@
     </div>
   </div>
 </div>
-</div>
+</div> -->

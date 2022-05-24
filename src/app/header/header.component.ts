@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   faWhiskey = faGlassWhiskey;
   collapsed = true;
   @Input() ageVerified;
+  dropdown = true;
 
   constructor(private authService: AuthService) { }
 

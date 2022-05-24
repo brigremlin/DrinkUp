@@ -20,6 +20,8 @@ export class BarComponent implements OnInit {
   searchedList: Pantry[] = [];
   searchValue: string = '';
   searchSubscription: Subscription;
+  imagePath = "www.thecocktaildb.com/images/ingredients/"
+  imagePathEnd = "-Small.png"
 
   constructor(
     private pantryService: PantryService,

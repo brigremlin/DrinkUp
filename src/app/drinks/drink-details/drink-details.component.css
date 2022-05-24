@@ -11,11 +11,35 @@ img {
   width: 50%;
 }
 
-h2 {
-  color: rgb(197, 161, 0);
-  font-weight: bold;
+h3 {
+  font-size: 30px;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  text-shadow: black;
 }
 
 p {
   font-size: 2vh;
+}
+
+.drink-header {
+  background: radial-gradient(circle at 0%, #dba40b, #ffdf74);
+  height: 225px;
+  margin-top: 5rem !important;
+} 
+
+.drink-content-wrap {
+  background-color: white;
+  margin-bottom: 200px !important;
+}
+
+.ingredients {
+  line-height: 2em;
+  max-width: 80%;
+} 
+
+.drink-body-wrap {
+  margin-left: 100px;
+  margin-right: 100px;
+  bottom: 200px !important;
 }

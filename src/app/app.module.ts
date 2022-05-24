@@ -47,6 +47,7 @@ import { BarComponent } from './bar/bar/bar.component';
 import { MyBarService } from './bar/bar/my-bar.service';
 import { AuthComponent } from './auth/auth.component';
 import { ProfileComponent } from './users/profile/profile.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -91,12 +92,13 @@ import { ProfileComponent } from './users/profile/profile.component';
     ProfileComponent
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule,
+    FontAwesomeModule
 
   ],
   providers: [DrinkService, FavoriteService, PantryService, MyBarService],

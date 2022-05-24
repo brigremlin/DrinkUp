@@ -1,9 +1,13 @@
 <app-letter-bar></app-letter-bar>
 
-<h1>"A" Cocktails</h1>
-
 <div class="row">
-  <div class="col-lg-3" *ngFor="let drink of aDrinks; let index = i">
+  <div class="col-lg-3" *ngFor="let drink of aDrinks | paginate
+  : {
+      itemsPerPage: 10,
+      currentPage: p,
+      totalItems: count
+    }; let index = i">
     <app-drink-item [drink]="drink" [index]="i"></app-drink-item>
   </div>
 </div>
+

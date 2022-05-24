@@ -2,27 +2,15 @@
   float: right;
 }
 
-.drink-container {
-  border-style: solid;
-  border-color: black;
-  border-radius: 5px;
-  box-shadow: 5px 3px 3px  gray;
-  padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+.drink-box {
+  position: relative;
+  min-height: 300px;
 }
 
-.drink-image {
-  max-height: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
-#drink-name {
+.drink-box .drink-name {
   font-weight: bold;
-  font-size: large;
-  text-align: center;
+  font-size: 1.25rem;
+  visibility: hidden;
 }
 span {
   color: rgba(212, 193, 18, 0.884);
@@ -47,4 +35,30 @@ button.star {
 
 h1 {
   font-weight: bold;
+}
+
+
+.drink-image {
+  aspect-ratio: 1/1;
+  width: 100%;
+  object-fit: cover;
+  margin-top: 20px;
+  border-radius: 3%;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0, .2),  -5px -5px 15px rgb(255, 255, 255, 0.1),  5px 5px 15px rgb(0, 0, 0, 0.3), -5px -5px 15px rgb(255, 255, 255, 0.1);
+  min-height: 300px;
+}
+
+.drink-box:hover .drink-name{
+  visibility: visible;
+  color: rgb(255, 255, 255);
+  font-size: 2em;
+  font-family: sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.drink-box:hover img {
+  filter: brightness(.5);
 }

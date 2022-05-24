@@ -1,4 +1,4 @@
-<div class = "container" *ngIf="singleDrink">
+<!-- <div class = "container" *ngIf="singleDrink">
 
   <img src="{{singleDrink.strDrinkThumb}}" alt="">
   <h1>{{singleDrink.strDrink}}</h1>
@@ -10,4 +10,25 @@
   </div>
   <h2>Instructions</h2>
   <p>{{singleDrink.strInstructions}}</p>
+</div> -->
+
+<div class="drink-header" *ngIf="singleDrink">
+  <div class="header w-75 mx-auto pt-5">
+    <h3 class="text-white"> {{singleDrink.strDrink}}</h3>
+  </div>
+    <div class="drink-body-wrap d-flex justify-content-between align-items-center">
+      <div class="drink-body mx-auto row g-o">
+        <div class="col-lg-6 col-12 p-0 order-last order-md-first">
+          <div class="drink-content-wrap p-4">
+            <div class="ingredients" *ngFor="let ingredient of ingredients">
+              <p class="ingredients-text"> {{ingredient.amount}} -- {{ingredient.name}}</p>
+            </div>
+            <p>{{singleDrink.strInstructions}}</p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-12 p-0 order-last order-md-first">
+          <img src="{{singleDrink.strDrinkThumb}}" alt="">
+        </div>
+      </div>
+  </div>
 </div>

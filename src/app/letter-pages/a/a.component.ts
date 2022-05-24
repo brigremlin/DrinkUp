@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { DrinkService } from 'src/app/drinks/drink.service';
 import { FavoriteService } from 'src/app/drinks/favorite.service';
 import { Drink } from 'src/app/shared/drink.model';
+import { NgxPaginationModule } from "ngx-pagination";
 
 
 @Component({
@@ -16,6 +17,8 @@ export class AComponent implements OnInit {
   @Input() drink;
   @Input() index;
   isFavorited= false;
+  count;
+  p=1
 
   constructor(private drinkService: DrinkService, private favoriteService: FavoriteService) { }
 
@@ -23,6 +26,7 @@ export class AComponent implements OnInit {
     this.subscription = this.drinkService.getA().subscribe((drinks) => {
       console.log(drinks);
       this.aDrinks = drinks;
+      this.count = drinks.length
     });
   }
 

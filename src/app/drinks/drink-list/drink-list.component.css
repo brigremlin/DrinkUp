@@ -24,3 +24,23 @@ a {
   color: black;
   font-weight: bold;
 }
+
+.container {
+  margin-bottom: 100px;
+}
+
+.drink-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin: 10px;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+}
+
+.drink-card {
+  /* box-shadow: 5px 5px 5px rgb(0, 0, 0, .2),  -5px -5px 15px rgb(255, 255, 255, 0.1),  5px 5px 15px rgb(0, 0, 0, 0.3), -5px -5px 15px rgb(255, 255, 255, 0.1);
+  border-radius: 15px;
+  background-color: rgb(88, 88, 88); */
+  /* max-width: 338px; */
+}
+

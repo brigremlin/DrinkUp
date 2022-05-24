@@ -1,56 +1,80 @@
-<nav class="navbar navbar-expand-lg navbar-dark ps-4">
-  <a class="navbar-brand" href="#">Drink Up</a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-    (click)="collapsed = !collapsed"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="header">
+  <div class="header-container">
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#"><img src="../../assets/logo.png" alt="" style="max-width:200px"></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="collapsed = !collapsed"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{collapse : collapsed}" (click)="collapsed = !collapsed">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#" routerLink="cocktails"
-          >Cocktails <span class="sr-only"></span></a
-        >
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="favorite">Favorites</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="bar">Bar</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="cabinet">My Cabinet</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="auth">Login/Sign up
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" (click)="onLogout()">Logout
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="user">Profile
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" style="color:rgb(63, 63, 63)" href="" (click)="ageVerified = !ageVerified">test</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{collapse : collapsed}" (click)="collapsed = !collapsed">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLink="cocktails"
+            >Cocktails <span class="sr-only"></span></a
+          >
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="favorite">Favorites</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="bar">Bar</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="cabinet">My Cabinet</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="auth">Login/Sign up
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#" (click)="onLogout()">Logout
+          </a>
+        </li> -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            User
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="cabinet">My Cabinet</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" (click)="onLogout()">Logout
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" routerLink="favorite">Favorites</a>
+            </li>
+          </ul>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="user">Profile
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" style="color:rgb(63, 63, 63)" href="" (click)="ageVerified = !ageVerified">test</a>
+        </li>
+      </ul>
+    </div>
+  </nav> 
+</div>
+</div>
 
 <!--HEADER-->
-<div class="header">
-  <div class="header-container"></div>
-</div>
+<!-- <div class="header">
+  <div class="header-container">
+    <div class="header-content">
+    </div>
+  </div>
+</div> -->
 <!-- </div> -->
 <hr />

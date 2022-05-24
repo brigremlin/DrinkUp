@@ -25,6 +25,9 @@ export class HomeComponent implements OnInit {
   public noResults = 'No Results Found';
   clicked: number;
   faWine = faBeerMugEmpty
+  drinkOne;
+  drinkTwo;
+  drinkThree;
 
 
   ngOnInit() {
@@ -35,6 +38,9 @@ export class HomeComponent implements OnInit {
       .getPopular()
       .subscribe((drinks) => {
         this.popularDrinks = drinks;
+        this.drinkOne = drinks[0];
+        this.drinkTwo = drinks[1];
+        this.drinkThree = drinks[2];
       });
 
     this.featuredSubscription = this.drinkService

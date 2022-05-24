@@ -1,13 +1,23 @@
 <div class="drink-container">
-  <a
-    [routerLink]="'/cocktails/' + drink.idDrink"
-    (click)="drinkDetail(drink.idDrink); getIngredients(drink)"
-  >
-    <img class="drink-image" src="{{ drink.strDrinkThumb }}" alt=""
-  /></a>
-  <p id="drink-name">{{ drink.strDrink }}</p>
-  <button type="button" class="star" (click)="onFavoritedDrinks(drink); isFavorited = !isFavorited">
-    {{ isFavorited ? "&#9733;" : "&#9734;" }}
-  </button>
+  <div class="drink-box">
+    <div class="panel">
+    <div class="content">
+      <a
+        [routerLink]="'/cocktails/' + drink.idDrink"
+        (click)="drinkDetail(drink.idDrink); getIngredients(drink)"
+      >
+        <img class="drink-image" src="{{ drink.strDrinkThumb }}" alt=""
+      /></a>
+      <p class="drink-name">{{ drink.strDrink }}</p>
+      <!-- <button
+        type="button"
+        class="star"
+        (click)="onFavoritedDrinks(drink); isFavorited = !isFavorited"
+      >
+        {{ isFavorited ? "&#9733;" : "&#9734;" }}
+      </button> -->
+    </div>
+    </div>
+  </div>
 </div>
 <router-outlet></router-outlet>

@@ -61,7 +61,6 @@ export class DrinkDetailsComponent implements OnInit {
 
   }
 
-
   getIngredients(drink: Drink) {
     for (let i = 1; i <= 15; i++) {
       if (drink['strIngredient' + i]) {

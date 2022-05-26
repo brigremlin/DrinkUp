@@ -1,5 +1,6 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 import { Pantry } from 'src/app/shared/pantry.model';
 import { PantryService } from 'src/app/shared/pantry.service';
 import { MyBarService } from './my-bar.service';
@@ -26,10 +27,13 @@ export class BarComponent implements OnInit {
   ingredient;
   clicked =0;
   isAdded = false;
+  isLoggedIn = false;
+  userSub: Subscription;
 
   constructor(
     private pantryService: PantryService,
-    private barService: MyBarService
+    private barService: MyBarService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -43,6 +47,15 @@ export class BarComponent implements OnInit {
           this.name = element.strIngredient1;
         });
       });
+      this.userSub = this.authService.user.subscribe(user => {
+        console.log(user)
+        if(user){
+          this.isLoggedIn = true;
+          console.log(this.isLoggedIn)
+        } else {
+          this.isLoggedIn = false;
+        }
+      })
   }
 
 
@@ -58,7 +71,7 @@ export class BarComponent implements OnInit {
           })
           break;
         }
-    }})
+    }});
   }
 
   onTableDataChange(event: any) {

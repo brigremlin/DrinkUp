@@ -2,11 +2,6 @@
   float: right;
 }
 
-/* .drink-box {
-  position: relative;
-  min-height: 300px;
-} */
-
 .drink-box .drink-name {
   font-weight: bold;
   font-size: 1.25rem;
@@ -37,6 +32,10 @@ h1 {
   font-weight: bold;
 }
 
+.drink-box {
+  position: relative;
+}
+
 
 .drink-image {
   aspect-ratio: 1/1;
@@ -50,7 +49,7 @@ h1 {
 
 .drink-box:hover .drink-name{
   visibility: visible;
-  color: rgb(255, 255, 255);
+  color: rgb(231, 231, 231);
   font-size: 2em;
   font-family: sans-serif;
   position: absolute;

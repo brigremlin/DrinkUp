@@ -1,10 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { PantryService } from 'src/app/shared/pantry.service';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../auth/auth.service';
 import { MyBarService } from '../bar/bar/my-bar.service';
 import { DrinkItemComponent } from '../drinks/drink-item/drink-item.component';
+import { DrinkService } from '../drinks/drink.service';
 import { Drink } from '../shared/drink.model';
 
 
@@ -24,7 +27,9 @@ export class MyCabinetComponent implements OnInit {
     private pantryService: PantryService,
     private barService: MyBarService,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private drinkService: DrinkService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -38,6 +43,10 @@ export class MyCabinetComponent implements OnInit {
     this.barService.deleteIngredient(id).subscribe((res) => {
       location.reload()
     });
+  }
+
+  drinkDetail(id: string) {
+    this.drinkService.getAlcoholicCocktail(id);
   }
 
   makeCocktail() {

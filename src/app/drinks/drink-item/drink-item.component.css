@@ -2,10 +2,10 @@
   float: right;
 }
 
-.drink-box {
+/* .drink-box {
   position: relative;
   min-height: 300px;
-}
+} */
 
 .drink-box .drink-name {
   font-weight: bold;
@@ -42,10 +42,10 @@ h1 {
   aspect-ratio: 1/1;
   width: 100%;
   object-fit: cover;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   border-radius: 3%;
   box-shadow: 5px 5px 5px rgb(0, 0, 0, .2),  -5px -5px 15px rgb(255, 255, 255, 0.1),  5px 5px 15px rgb(0, 0, 0, 0.3), -5px -5px 15px rgb(255, 255, 255, 0.1);
-  min-height: 300px;
+  /* min-height: 300px; */
 }
 
 .drink-box:hover .drink-name{

@@ -1,5 +1,5 @@
-import { Component, Injectable, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, Injectable, OnInit, Output } from '@angular/core';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Drink } from 'src/app/shared/drink.model';
 import { DrinkService } from '../drink.service';
 import { FavoriteService } from '../favorite.service';
@@ -14,6 +14,9 @@ import { FavoriteService } from '../favorite.service';
 
 export class FavoriteListComponent implements OnInit {
   favoritesList;
+  p=1;
+  count;
+
 
   constructor(private favoriteService: FavoriteService, private drinkService: DrinkService) { }
 
@@ -21,12 +24,13 @@ export class FavoriteListComponent implements OnInit {
     this.favoriteService.getFavorites().subscribe((res) => {
       this.favoritesList = res.payload
       console.log(this.favoritesList)
+      this.count = res.payload.length
     })
   }
 
   onRemoveFromFavorites(id) {
     this.favoriteService.deleteDrink(id).subscribe((res) => {
-        console.log("Removed " + id)
+      window.location.reload()
     })
   }
 
@@ -35,5 +39,7 @@ export class FavoriteListComponent implements OnInit {
     this.drinkService.getAlcoholicCocktail(id);
   }
 
-
+  onTableDataChange(event: any) {
+    this.p = event;
+  }
 }

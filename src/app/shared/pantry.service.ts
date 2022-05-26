@@ -23,4 +23,18 @@ export class PantryService {
         })
       );
   }
+
+  searchIngredients(ingredient) {
+    return this.http
+      .get<any>(
+        'https://www.thecocktaildb.com/api/json/v2/' + environment.cocktailDBKey + '/search.php?i=' + ingredient
+      )
+      .pipe(
+        map((ingredients) => {
+          console.log(ingredients)
+          return ingredients.ingredients;
+        })
+      );
+  }
+
 }

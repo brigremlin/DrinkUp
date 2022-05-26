@@ -71,4 +71,14 @@ hr {
   width: 50px;
 }
 
+@media (max-width:625px) {
+  .header-container {
+    max-height: 20rem;
+  }
+}
 
+@media (max-width:1200px) {
+  .header-container {
+    max-height: 20rem;
+  }
+}

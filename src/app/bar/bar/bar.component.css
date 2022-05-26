@@ -10,6 +10,7 @@
   text-align: center;
 }
 
+
 #item-name {
   font-weight: bold;
   font-size: large;
@@ -22,7 +23,31 @@
   font-weight: bold;
 }
 
+
 h1 {
+  font-weight: bold;
+}
+
+.hr2 {
+  border: 0;
+  border-top: medium double #ccc;
+  height: 1px;
+  overflow: visible;
+  padding: 0;
+  color: #ccc;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.hr2::after {
+  content: "Search Ingredients";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 2.15rem;
+  padding: 0 0.3em;
+  background: white;
+  color: black;
   font-weight: bold;
 }
 
@@ -42,7 +67,7 @@ h1 {
   display: inline-block;
   position: relative;
   top: -0.7em;
-  font-size: 2.4em;
+  font-size: 2.75rem;
   padding: 0 0.3em;
   background: white;
   color: black;
@@ -62,4 +87,12 @@ input {
 
 .search-button {
   margin-left: 5px;
+}
+
+@media (max-width:625px) {
+  .hr5::after {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+
 }

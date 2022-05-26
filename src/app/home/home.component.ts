@@ -94,4 +94,8 @@ getApple(){
     console.log(res)
   });
 }
+
+toSearch(){
+  document.getElementById("search").scrollIntoView();
+}
 }

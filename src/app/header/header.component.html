@@ -22,47 +22,27 @@
             >Cocktails <span class="sr-only"></span></a
           >
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="favorite">Favorites</a>
-        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="favorite" *ngIf="isLoggedIn">Favorites</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="#" routerLink="bar">Bar</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="cabinet">My Cabinet</a>
-        </li> -->
         <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="auth">Login/Sign up
+          <a class="nav-link" href="#" routerLink="cabinet" *ngIf="isLoggedIn">My Cabinet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="auth" *ngIf="!isLoggedIn">Login/Sign up
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" (click)="onLogout()" *ngIf="isLoggedIn">Logout
           </a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            User
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li class="nav-item">
-              <a class="nav-link" href="#" routerLink="cabinet">My Cabinet</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" (click)="onLogout()">Logout
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" routerLink="favorite">Favorites</a>
-            </li>
-          </ul>
-        </li>
+  
         <!-- <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="user">Profile
-          </a>
-        </li> -->
-        <li class="nav-item">
           <a class="nav-link" style="color:rgb(63, 63, 63)" href="" (click)="ageVerified = !ageVerified">test</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </nav> 

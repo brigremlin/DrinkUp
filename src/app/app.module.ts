@@ -103,7 +103,7 @@ import { FooterComponent } from './footer/footer.component';
     FontAwesomeModule
 
   ],
-  providers: [DrinkService, FavoriteService, PantryService, MyBarService],
+  providers: [DrinkService, FavoriteService, PantryService, MyBarService, MyCabinetComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

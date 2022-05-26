@@ -18,7 +18,7 @@ a {
   display: inline-block;
   position: relative;
   top: -0.7em;
-  font-size: 5vmin;
+  font-size: 3rem;
   padding: 0 0.3em;
   background: white;
   color: black;
@@ -32,6 +32,28 @@ a {
 .drink-grid {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  margin: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+
+@media (max-width:1200px) {
+
+}
+@media (max-width:770px) {
+  .hr5::after {
+    font-size: 2rem;
+    margin-bottom: 30%;
+  }
+}
+@media (max-width:525px) {
+  .hr5::after {
+    font-size: 2rem;
+    margin-bottom: 30%;
+  }
+}
+@media (max-width:625px) {
+  .drink-grid {
+    margin-top: 5rem;
+    gap: .5rem;
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 2fr));
+  }
 }

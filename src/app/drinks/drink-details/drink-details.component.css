@@ -28,6 +28,19 @@ p {
   margin-top: 5rem !important;
 } 
 
+.sm-header {
+  background: radial-gradient(circle at 0%, #dba40b, #ffdf74);
+  height: 125px;
+  margin-top: 5rem !important;
+} 
+
+.sm-favorites {
+  background: radial-gradient(circle at 0%, #dba40b, #ffdf74);
+  font-weight: 700;
+  margin-bottom: 10%;
+}
+
+
 .drink-content-wrap {
   background-color: white;
   margin-bottom: 200px !important;
@@ -37,6 +50,22 @@ p {
   line-height: 2em;
   max-width: 80%;
 } 
+
+.ingredients-text {
+  font-size: 1.15rem;
+  font-family: sans-serif;
+}
+
+.instructions {
+  font-size: 1.15rem;
+  font-family: sans-serif;
+}
+
+.instructions {
+  font-weight: 700;
+  font-size: 1.75rem;
+  font-family: "AmberWhiskey-Aged";
+}
 
 .drink-body-wrap {
   margin-left: 100px;
@@ -49,6 +78,34 @@ p {
   font-size: 4rem;
 }
 
+.sm-drink-name {
+  font-family: "AmberWhiskey-Aged";
+  font-size: 4rem;
+}
+
+.sm-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sm-image {
+  object-fit: cover;
+  margin-top: 20px;
+  border-radius: 3%;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0, .2),  -5px -5px 15px rgb(255, 255, 255, 0.1),  5px 5px 15px rgb(0, 0, 0, 0.3), -5px -5px 15px rgb(255, 255, 255, 0.1);
+  max-width: 60%;
+}
+
 .favorites {
-  bottom: 0 !important;
+  font-weight: 700;
+}
+
+@media (max-width: 525px) {
+  .drink-name {
+    font-size: 2.5rem;
+  }
+  .sm-drink-name {
+    font-size: 3rem;
+  }
 }

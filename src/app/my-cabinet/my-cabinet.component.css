@@ -26,7 +26,7 @@ h1 {
   margin-top: 50px;
 }
 
-.hr6 {
+.hr6  {
   border: 0;
   border-top: medium double #ccc;
   height: 1px;
@@ -35,6 +35,7 @@ h1 {
   color: #ccc;
   text-align: center;
   margin-top: 10%;
+  margin-top: 100px;
 }
 
 .hr6::after {
@@ -42,9 +43,126 @@ h1 {
   display: inline-block;
   position: relative;
   top: -0.7em;
-  font-size: 4vmin;
+  font-size: 3rem;
   padding: 0 0.3em;
   background: white;
   color: black;
   font-weight: bold;
+}
+.hr7  {
+  border: 0;
+  border-top: medium double #ccc;
+  height: 1px;
+  overflow: visible;
+  padding: 0;
+  color: #ccc;
+  text-align: center;
+  margin-top: 10%;
+  margin-top: 100px;
+}
+
+.hr7::after {
+  content: "What Can I Make?";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 3rem;
+  padding: 0 0.3em;
+  background: white;
+  color: black;
+  font-weight: bold;
+}
+
+h1 {
+  font-family: "AmberWhiskey-Aged";
+  font-size: 6rem;
+  text-align: center;
+  color: rgb(199, 160, 33);
+}
+
+.search-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  margin-top: 5%;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box .search-name {
+  font-weight: bold;
+  font-size: 1.25rem;
+  visibility: hidden;
+}
+
+.search-image {
+  aspect-ratio: 1/1;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 3%;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0, .2),  -5px -5px 15px rgb(255, 255, 255, 0.1),  5px 5px 15px rgb(0, 0, 0, 0.3), -5px -5px 15px rgb(255, 255, 255, 0.1);
+}
+
+.search-box:hover .search-name{
+  visibility: visible;
+  color: rgb(255, 255, 255);
+  font-size: 2em;
+  font-family: sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.search-box:hover img {
+  filter: brightness(.5);
+}
+
+@media (max-width:625px) {
+  .hr6::after {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+  h1 {
+    font-size: 3.5rem;
+  }
+  .favorite-grid {
+    gap: .5rem;
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 2fr));
+  }
+}
+
+.make-button {
+  background: #fc4a1a;
+  background: -webkit-linear-gradient(to left, #f7b733, #fc4a1a);
+  background: linear-gradient(to left, #f7b733, #fc4a1a);
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.button-summary {
+  padding-top: 2%;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.generating-container {
+  min-height: 50vh;
+}
+
+@media (max-width:459px){
+  .hr7::after {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 463px) {
+  .search-grid {
+    gap: .5rem;
+    grid-template-columns: repeat(auto-fit, minmax(7.5rem, 2fr));
+  }
 }

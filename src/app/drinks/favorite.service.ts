@@ -27,11 +27,7 @@ export class FavoriteService{
       Authorization: `Bearer ${token}`
     })
     return this.http.get<any>("https://drinkup-base-api.herokuapp.com/api/v1/favorites/my_favorites", {headers: headers})
-    // .subscribe(res => {
-    //     console.log("Fetching favorites", res.payload)
-    //     this.favoriteList = res.payload
-    //     console.log(this.favoriteList)
-    // });
+
     }
 
   isFavorited(drink: Drink){
@@ -47,7 +43,7 @@ export class FavoriteService{
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
     })
-    return this.http.delete("https://drinkup-base-api.herokuapp.com/api/v1/favorites/${id}", id)
+    return this.http.delete("https://drinkup-base-api.herokuapp.com/api/v1/favorites/" +id, {headers:headers})
   }
 
   favoriteDrink(drink) {

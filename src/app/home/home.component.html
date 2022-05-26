@@ -2,14 +2,14 @@
 <div class="opening">
   <fa-icon class="wine-left" [icon]="faWine"></fa-icon>
   <fa-icon class="wine-right" [icon]="faWine"></fa-icon>
-  <p id="opening">
+  <p class="opening-text">
     Learn how to make great cocktails in the comfort of your own home.
     <br />Search by recipe name.
   </p>
 </div>
 
 <div class="container">
-  <div class="search">
+  <div id="search" class="search">
     <input type="text" placeholder="Search" [(ngModel)]="search" />
     <button class="search-button" (click)="searchDrink(search)">Search</button>
   </div>
@@ -80,22 +80,22 @@
 </div>
 
 <div class="banners mt-5">
-  <button class="banner-button" (click)="getPineapple()">
+  <button class="banner-button" (click)="getPineapple(); toSearch()">
   <div class="middle-pineapple">
     <h1 class="middle-font">Pineapple</h1>
   </div>
   </button>
-<button class="banner-button" (click)="getLime()">
+<button class="banner-button" (click)="getLime(); toSearch()">
 <div class="middle-lime">
   <h1 class="middle-font">Lime</h1>
 </div>
 </button>
-<button class="banner-button" (click)="getChocolate()">
+<button class="banner-button" (click)="getChocolate(); toSearch()">
 <div class="middle-chocolate">
   <h1 class="middle-font">Chocolate</h1>
 </div>
 </button>
-<button class="banner-button" (click)="getApple()">
+<button class="banner-button" (click)="getApple(); toSearch()">
 <div class="middle-apples">
   <h1 class="middle-font">Apple</h1>
 </div>

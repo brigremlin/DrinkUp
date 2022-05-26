@@ -115,7 +115,7 @@
   margin-top: 50px;
 }
 
-#opening {
+.opening-text {
   font-size: 25px;
   text-align: center;
   font-weight: bold;
@@ -354,5 +354,15 @@
   left: 0;
 }
 
+@media (max-width:625px) {
+  .middle-font {
+    font-size: 5rem;
+  }
 
+}
 
+  @media(min-width:1200px) {
+    .opening-text {
+      font-size: 2.25rem;
+    }
+  }

@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
     this.userSub = this.authService.user.subscribe(user => {
       console.log(user)
       if(user){
-        this.isLoggedIn = !this.isLoggedIn;
+        this.isLoggedIn = true;
         console.log(this.isLoggedIn)
       }
     })

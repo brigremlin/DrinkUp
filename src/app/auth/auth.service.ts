@@ -55,11 +55,6 @@ export class AuthService {
       );
   }
 
-  // const token = data.payload.access_token; //holds retrieved bearer token
-  //       const headers = new HttpHeaders({
-  //         'Content-Type': 'application/json',
-  //         Authorization: `Bearer ${token}`, //implements bearer token into authorization header
-  //       });
 
   autoLogin() {
     const userData: {

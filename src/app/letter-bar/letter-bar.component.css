@@ -14,7 +14,7 @@
   display: inline-block;
   position: relative;
   top: -0.7em;
-  font-size: 4vmin;
+  font-size: 3rem;
   padding: 0 0.3em;
   background: white;
   color: black;
@@ -24,7 +24,7 @@
 .letters {
   padding: 5%;
   font-weight: bold;
-  font-size: 4vmin;
+  font-size: 2rem;
   letter-spacing: 20px;
   color: black;
   text-align: center;
@@ -40,4 +40,37 @@ a {
   width: 100%;
   height: auto;
   display: block;
+}
+
+@media (min-width:1200px) {
+  .letters{
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width:1200px) {
+  .letters{
+    font-size: 2.5rem;
+  }
+}
+@media (max-width:770px) {
+  .letters{
+    font-size: 2rem;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  .hr6::after {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+}
+@media (max-width:463px) {
+  .letters{
+    margin-top: 20%;
+  }
+  .hr6::after {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    margin-top: 10%;
+  }
 }

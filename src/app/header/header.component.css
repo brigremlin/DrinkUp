@@ -84,8 +84,9 @@ hr {
 }
 
 
-.navbar-toggle .navbar-toggler-icon{
-  background-color: pink;
+.navbar-toggler-icon{
+  background-color: rgb(182, 182, 182, .5);
   background-image: none;
-  border: 1px solid red;
+  border: 1px solid rgb(117, 117, 117);
+  border-radius: 8%;
 }

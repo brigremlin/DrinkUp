@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faCaretUp, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faWineBottle } from '@fortawesome/free-solid-svg-icons';
 import { faBeer } from '@fortawesome/free-solid-svg-icons';
 import { faGlassWhiskey } from '@fortawesome/free-solid-svg-icons';
@@ -25,6 +25,8 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   userSub: Subscription
   user = new BehaviorSubject<User>(null);
+  faCaret = faCaretUp;
+  faCaretDown = faCaretDown
 
   constructor(private authService: AuthService, private router: Router) { }
 

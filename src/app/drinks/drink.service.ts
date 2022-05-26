@@ -68,7 +68,6 @@ export class DrinkService {
       )
       .pipe(map((data: any) => data.drinks.map(Drink.adapt)))
       .subscribe((res) => {
-        console.log(res);
         this.drinkSubject.next(res[0]);
       });
   }
@@ -82,7 +81,6 @@ export class DrinkService {
           id
       )
       .subscribe((data) => {
-        console.log(id);
         return data.drinks;
       });
   }
@@ -124,7 +122,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -138,7 +135,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -152,7 +148,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -166,7 +161,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -180,7 +174,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -194,7 +187,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -208,7 +200,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -222,7 +213,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -236,7 +226,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -250,7 +239,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -264,7 +252,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -278,7 +265,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -292,7 +278,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -306,7 +291,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -320,7 +304,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -334,7 +317,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -348,7 +330,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -362,7 +343,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -376,7 +356,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -390,7 +369,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -404,7 +382,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -418,7 +395,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -432,7 +408,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -446,7 +421,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -460,7 +434,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );
@@ -474,7 +447,6 @@ export class DrinkService {
       )
       .pipe(
         map((drinks) => {
-          console.log(drinks);
           return drinks.drinks;
         })
       );

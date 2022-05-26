@@ -35,6 +35,6 @@
     <p class="text-center mt-5 text-uppercase instructions">Instructions: <br></p>
     <p>{{singleDrink.strInstructions}}</p>
     <button class="sm-favorites m-5" [disabled]="!isLoggedIn" *ngIf="!isFavorited" (click)="onFavoriteDrink(singleDrink)"> ADD TO FAVORITES</button>
-  <button class="sm-favorites m-5" [disabled]="!isLoggedIn" (click)="onRemoveFromFavorites(id);isFavorited = !isFavorited"> REMOVE FROM FAVORITES</button>
+  <button class="sm-favorites m-5" [disabled]="!isLoggedIn" (click)="onRemoveFromFavorites(id);isFavorited = !isFavorited" *ngIf="isFavorited"> REMOVE FROM FAVORITES</button>
   </div>
 </div>

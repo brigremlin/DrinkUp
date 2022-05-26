@@ -41,17 +41,14 @@ export class BarComponent implements OnInit {
       .getIngredients()
       .subscribe((ingredients) => {
         this.myBar = ingredients;
-        console.log(this.myBar)
         this.count = ingredients.length;
         this.myBar.forEach((element) => {
           this.name = element.strIngredient1;
         });
       });
       this.userSub = this.authService.user.subscribe(user => {
-        console.log(user)
         if(user){
           this.isLoggedIn = true;
-          console.log(this.isLoggedIn)
         } else {
           this.isLoggedIn = false;
         }
@@ -67,7 +64,6 @@ export class BarComponent implements OnInit {
           break;
         } else {
           this.barService.addIngredient(pantry).subscribe((res)=> {
-            console.log(res)
           })
           break;
         }
@@ -81,7 +77,6 @@ export class BarComponent implements OnInit {
   onSearchIngredients(ingredient){
     this.pantryService.searchIngredients(ingredient).subscribe((data)=> {
       this.searchedList = data;
-      console.log(this.searchedList)
       // this.searchedList = data
       // console.log(this.searchedList)
     })

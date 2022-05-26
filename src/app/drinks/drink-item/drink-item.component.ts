@@ -22,13 +22,11 @@ export class DrinkItemComponent {
   onFavoritedDrinks(drink: Drink) {
     this.favoriteService.getFavorites().subscribe((data) => {
       this.favoriteList = data.payload
-      console.log(drink.idDrink)
       for (let i = 0; i < this.favoriteList.length; i++) {
         if(this.favoriteList[i].idDrink == drink.idDrink){
           break;
         } else {
           this.favoriteService.favoriteDrink(drink).subscribe((data) => {
-            console.log(data)
           })
           break;
         }
@@ -37,7 +35,6 @@ export class DrinkItemComponent {
   }
 
   drinkDetail(id: string) {
-    console.log(id);
     this.drinkService.getAlcoholicCocktail(id);
   }
 

@@ -49,7 +49,6 @@ export class AuthService {
           const { email, id } = res.payload.user;
 
           const expiresIn = new Date(expiry).getTime() - Date.now();
-          console.log("THIS EXECUTES", email, value)
           this.handleAuth(email, id, value, +expiresIn);
         })
       );

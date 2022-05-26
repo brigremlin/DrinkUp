@@ -20,12 +20,10 @@ export class AuthComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    console.log(this.isLoginMode)
   }
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
-    console.log(this.isLoginMode)
   }
 
   onSubmit(form: NgForm) {
@@ -42,13 +40,11 @@ export class AuthComponent {
       this.authObs = this.authService.signup(email, password);
     }
     this.authObs.subscribe(resData => {
-    console.log(resData);
     if(this.isLoginMode) {
       this.isLoginMode = !this.isLoginMode;
       this.router.navigate(['/cocktails'])
   }
   }, error => {
-    console.log(error)
     this.error = error;
   }
   )

@@ -35,7 +35,6 @@ export class MyCabinetComponent implements OnInit {
   ngOnInit() {
     this.barService.getIngredients().subscribe((res) => {
       this.myCabinet = res.payload;
-      console.log(this.myCabinet);
     });
   }
 
@@ -55,11 +54,8 @@ export class MyCabinetComponent implements OnInit {
     for(let i=0; i<this.myCabinet.length;i++){
       ingredients[i] = this.myCabinet[i].strIngredient1;
     }
-    console.log(ingredients)
     const ingredientList = ingredients.toString()
-    console.log(ingredientList)
     this.http.get<any>('https://www.thecocktaildb.com/api/json/v2/'+ environment.cocktailDBKey+'/filter.php?i=' + ingredientList).subscribe((res) => {
-      console.log(res.drinks)
       if(res.drinks != "None Found"){
         this.drinkList = res.drinks;
         this.results = true;

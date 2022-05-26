@@ -33,7 +33,6 @@ export class DrinkDetailsComponent implements OnInit {
       this.singleDrink = res;
       this.drinkId = this.singleDrink.idDrink
       this.getIngredients(this.singleDrink);
-      console.log(this.singleDrink.idDrink)
       this.favoriteService.getFavorites().subscribe((res) => {
         this.favorites = res.payload
         const length = res.payload.length
@@ -50,10 +49,8 @@ export class DrinkDetailsComponent implements OnInit {
       })
   });
    this.userSub = this.authService.user.subscribe(user => {
-      console.log(user)
       if(user){
         this.isLoggedIn = true;
-        console.log(this.isLoggedIn)
       } else {
         this.isLoggedIn = false;
       }
@@ -73,7 +70,6 @@ export class DrinkDetailsComponent implements OnInit {
 
   onFavoriteDrink(drink: Drink){
     this.favoriteService.favoriteDrink(drink).subscribe((res) => {
-      console.log("favorited");
       this.router.navigate(['favorite'])
     })
   }

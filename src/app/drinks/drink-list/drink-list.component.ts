@@ -27,7 +27,6 @@ export class DrinkListComponent implements OnInit {
 
   ngOnInit() {
     this.subscription = this.drinkService.getDrinks().subscribe((drinks) => {
-      console.log(drinks);
       this.myDrinks = drinks;
     });
     this.popularSubscription = this.drinkService

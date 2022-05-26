@@ -15,6 +15,7 @@ export class AuthComponent {
   isLoading = false;
   error: string = null;
   authObs: Observable<AuthResponseData>
+  message;
 
 
   constructor(private authService: AuthService, private router: Router) {}
@@ -40,10 +41,16 @@ export class AuthComponent {
       this.authObs = this.authService.signup(email, password);
     }
     this.authObs.subscribe(resData => {
-    if(this.isLoginMode) {
-      this.isLoginMode = !this.isLoginMode;
-      this.router.navigate(['/cocktails'])
-  }
+    if(resData.success) {
+      if(!this.isLoginMode) {
+        this.router.navigate(['/auth'])
+        this.message = "Verify your account by logging in using your credentials"
+        this.isLoginMode = !this.isLoginMode;
+      } else {
+        this.isLoginMode = !this.isLoginMode;
+        this.router.navigate(['/cocktails'])
+      }
+    }
   }, error => {
     this.error = error;
   }

@@ -18,6 +18,7 @@ export interface AuthResponseData {
   expiresIn: string;
   localId: string;
   registered?: boolean;
+  success: boolean;
 }
 
 @Injectable({ providedIn: 'root' })

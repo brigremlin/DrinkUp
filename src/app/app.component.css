@@ -83,5 +83,30 @@
 }
 
 body, html {
-    height: 100vh;
+    min-height: 100vh;
+}
+
+
+
+footer {
+    background-color:rgb(190, 160, 62);
+    color:white;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    bottom: 0;
+}
+
+.logo {
+    max-height: 75px;
+}
+
+@media (max-width:700px) {
+    .logo {
+        max-height: 50px;
+    }
+    .footer {
+        margin-top: 50%;
+    }
+
 }

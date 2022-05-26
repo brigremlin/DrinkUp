@@ -62,3 +62,10 @@ h1 {
 .drink-box:hover img {
   filter: brightness(.5);
 }
+
+@media (max-width:1000px){
+  .drink-box .drink-name {
+    font-size: 1rem;
+    visibility: visible;
+  }
+}

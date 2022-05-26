@@ -14,8 +14,8 @@
               <p class="ingredients-text"> {{ingredient.amount}} -- {{ingredient.name}}</p>
             </div>
             <p>{{singleDrink.strInstructions}}</p>
-            <p class="favorites" *ngIf="!isFavorited" (click)="onFavoriteDrink(singleDrink)"> ADD TO FAVORITES</p>
-            <p class="favorites" *ngIf="isFavorited" (click)="onRemoveFromFavorites(id);isFavorited = !isFavorited"> REMOVE FROM FAVORITES</p>
+            <p class="sm-favorites text-center" *ngIf="!isFavorited" (click)="onFavoriteDrink(singleDrink)"> ADD TO FAVORITES</p>
+            <p class="sm-favorites" *ngIf="isFavorited" (click)="onRemoveFromFavorites(id);isFavorited = !isFavorited"> REMOVE FROM FAVORITES</p>
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@
     </div>
     <p class="text-center mt-5 text-uppercase instructions">Instructions: <br></p>
     <p>{{singleDrink.strInstructions}}</p>
-    <p class="sm-favorites mb-5" *ngIf="!isFavorited" (click)="onFavoriteDrink(singleDrink)"> ADD TO FAVORITES</p>
-  <p class="sm-favorites mb-5" *ngIf="isFavorited" (click)="onRemoveFromFavorites(id);isFavorited = !isFavorited"> REMOVE FROM FAVORITES</p>
+    <button class="sm-favorites m-5" [disabled]="!isLoggedIn" *ngIf="!isFavorited" (click)="onFavoriteDrink(singleDrink)"> ADD TO FAVORITES</button>
+  <button class="sm-favorites m-5" [disabled]="!isLoggedIn" (click)="onRemoveFromFavorites(id);isFavorited = !isFavorited"> REMOVE FROM FAVORITES</button>
   </div>
 </div>

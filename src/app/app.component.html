@@ -1,3 +1,4 @@
+<div class=" d-flex flex-column min-vh-100">
 <div class="splash-page" *ngIf="splashPage && ageVerified">
   <div class="container splash-contents">
     <h1 class="welcome-text"> Welcome To</h1>
@@ -19,8 +20,13 @@
 </div>
 </div>
 
+
+<footer *ngIf="router.url != '/'">
+  <img class="logo" src="../assets/logo.png" alt="">
+</footer>
 <!-- <div *ngIf="!splashPage">
   <div class="footer w-100 pb-0 pt-0">
 <app-footer style="margin:0px auto"></app-footer>
 </div>
 </div> -->
+</div>

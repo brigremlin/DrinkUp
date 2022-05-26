@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, tap, throwError } from 'rxjs';
@@ -84,16 +84,12 @@ export class AuthService {
   }
 
   logout() {
-    this.http.delete('https://drinkup-base-api.herokuapp.com/api/v1/users/logout').subscribe((res: any) => {
-      console.log("Logged Out", res);
-      if(res.success) {
-        this.user.next(null);
-        localStorage.removeItem('userData');
-
-        if(this.tokenExpirationTimer) clearTimeout(this.tokenExpirationTimer);
-        this.router.navigate(['auth']);
-      }
+    const token = this.currentUser._token
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
     })
+    return this.http.delete('https://drinkup-base-api.herokuapp.com/api/v1/users/logout', {headers:headers})
   }
 
   autoLogout(expirationDuration: number) {

@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faWineBottle } from '@fortawesome/free-solid-svg-icons';
 import { faBeer } from '@fortawesome/free-solid-svg-icons';
 import { faGlassWhiskey } from '@fortawesome/free-solid-svg-icons';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
+import { User } from '../auth/user.model';
 
 @Component({
   selector: 'app-header',
@@ -22,8 +24,9 @@ export class HeaderComponent implements OnInit {
   dropdown = true;
   isLoggedIn = false;
   userSub: Subscription
+  user = new BehaviorSubject<User>(null);
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(){
     console.log(this.isLoggedIn)
@@ -37,7 +40,16 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout(){
-    this.authService.logout;
+    this.authService.logout().subscribe((res: any) => {
+      console.log("Logged Out", res);
+      if(res.success) {
+        this.user.next(null);
+        localStorage.removeItem('userData');
+        this.isLoggedIn = false;
+        // if(this.tokenExpirationTimer) clearTimeout(this.tokenExpirationTimer);
+        this.router.navigate(['auth']);
+      }
+    })
   }
 
 }

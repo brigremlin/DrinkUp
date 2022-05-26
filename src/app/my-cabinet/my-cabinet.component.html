@@ -1,23 +1,4 @@
 
-
-<!-- <div class="results">
-  <div class="search-grid">
-      <div class="search-container" *ngFor="let drink of drinkList">
-        <div class="search-box">
-        <a
-          [routerLink]="'/cocktails/' + drink.idDrink"
-          (click)="drinkDetail(drink.idDrink); getIngredients(drink)"
-        >
-          <img
-            class="search-image"
-            src="{{ drink.strDrinkThumb }}"
-            alt="{{ drink.strDrink }}"
-        /></a>
-        <p class="search-name">{{ drink.strDrink }}</p>
-      </div>
-      </div>
-    </div>
-</div> -->
 <hr class="hr6" />
 <div class = "row">
   <div class = "col-lg-3" *ngFor = "let item of myCabinet">
@@ -32,7 +13,9 @@
 <hr class="hr7" />
 <p class="button-summary">Can't decide what you're in the mood for? We'll recommend drinks to you based on what you have available in your cabinet</p>
 <button class="make-button btn-lg" (click)="makeCocktail()"> WHAT CAN I MAKE? </button>
+
 <div class="results">
+  <div class="noResults text-center" *ngIf="!results "><h1>NO RESULTS FOUND</h1></div>
   <div class="search-grid">
       <div class="search-container" *ngFor="let drink of drinkList">
         <div class="search-box">

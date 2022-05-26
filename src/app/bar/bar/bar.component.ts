@@ -47,20 +47,18 @@ export class BarComponent implements OnInit {
 
 
   onAddToCabinet(pantry: Pantry) {
-    this.barService.addIngredient(pantry).subscribe((data) => {
-      this.myCabinet = data
-      console.log(pantry.strIngredient1)
-      for (let i = 0; i < this.myCabinet.length; i++) {
-        if(this.myCabinet[i].idDrink == pantry.strIngredient1){
+    this.barService.getIngredients().subscribe((res) => {
+      this.myCabinet = res.payload
+       for (let i = 0; i < this.myCabinet.length; i++) {
+        if(this.myCabinet[i].strIngredient1 === pantry.strIngredient1){
           break;
         } else {
-          this.barService.addIngredient(pantry).subscribe((data) => {
-            console.log(data)
+          this.barService.addIngredient(pantry).subscribe((res)=> {
+            console.log(res)
           })
           break;
         }
-      }
-    })
+    }})
   }
 
   onTableDataChange(event: any) {

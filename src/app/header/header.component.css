@@ -82,3 +82,10 @@ hr {
     max-height: 20rem;
   }
 }
+
+
+.navbar-toggle .navbar-toggler-icon{
+  background-color: pink;
+  background-image: none;
+  border: 1px solid red;
+}

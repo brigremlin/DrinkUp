@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { single } from 'rxjs/operators';
+import { AuthService } from 'src/app/auth/auth.service';
 import { Drink } from 'src/app/shared/drink.model';
 import { DrinkService } from '../drink.service';
 import { FavoriteService } from '../favorite.service';
@@ -21,8 +22,11 @@ export class DrinkDetailsComponent implements OnInit {
   favorites;
   drinkId;
   isFavorited = false;
+  isLoggedIn = false;
+  userSub: Subscription;
 
-  constructor(private drinkService: DrinkService, private favoriteService: FavoriteService, private router:Router) {}
+
+  constructor(private drinkService: DrinkService, private favoriteService: FavoriteService, private router:Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.drinkSubscription = this.drinkService.drinkSubject.subscribe((res) => {
@@ -45,7 +49,18 @@ export class DrinkDetailsComponent implements OnInit {
         return this.isFavorited;
       })
   });
+   this.userSub = this.authService.user.subscribe(user => {
+      console.log(user)
+      if(user){
+        this.isLoggedIn = true;
+        console.log(this.isLoggedIn)
+      } else {
+        this.isLoggedIn = false;
+      }
+    })
+
   }
+
 
   getIngredients(drink: Drink) {
     for (let i = 1; i <= 15; i++) {

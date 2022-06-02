@@ -49,8 +49,10 @@ export class BarComponent implements OnInit {
       this.userSub = this.authService.user.subscribe(user => {
         if(user){
           this.isLoggedIn = true;
+          console.log(this.isLoggedIn)
         } else {
           this.isLoggedIn = false;
+          console.log(this.isLoggedIn)
         }
       })
   }
@@ -59,15 +61,23 @@ export class BarComponent implements OnInit {
   onAddToCabinet(pantry: Pantry) {
     this.barService.getIngredients().subscribe((res) => {
       this.myCabinet = res.payload
+      console.log(res.payload)
+      if(this.myCabinet.length == 0){
+        this.barService.addIngredient(pantry).subscribe((res) => {
+          console.log(res)
+        })
+      } else {
        for (let i = 0; i < this.myCabinet.length; i++) {
         if(this.myCabinet[i].strIngredient1 === pantry.strIngredient1){
           break;
         } else {
           this.barService.addIngredient(pantry).subscribe((res)=> {
+            console.log(res)
           })
           break;
         }
-    }});
+    }}
+  });
   }
 
   onTableDataChange(event: any) {

@@ -38,7 +38,7 @@
     }">
     <div class = "drink-container">
       <p id = "item-name"> {{ item.strIngredient1 }}</p>
-      <button class = "btn" [disabled]="!isLoggedIn" (click) ="onAddToCabinet(item)"> Add To Cabinet </button>
+      <button class = "btn" (click) ="onAddToCabinet(item)"> Add To Cabinet </button>
     </div>
   </div>
   <div class="d-flex justify-content-center mt-5">

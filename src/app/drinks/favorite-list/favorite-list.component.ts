@@ -1,4 +1,5 @@
 import { Component, Injectable, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Drink } from 'src/app/shared/drink.model';
 import { DrinkService } from '../drink.service';
@@ -18,7 +19,7 @@ export class FavoriteListComponent implements OnInit {
   count;
 
 
-  constructor(private favoriteService: FavoriteService, private drinkService: DrinkService) { }
+  constructor(private favoriteService: FavoriteService, private drinkService: DrinkService, private router: Router) { }
 
   ngOnInit() {
     this.favoriteService.getFavorites().subscribe((res) => {
@@ -30,7 +31,7 @@ export class FavoriteListComponent implements OnInit {
 
   onRemoveFromFavorites(id) {
     this.favoriteService.deleteDrink(id).subscribe((res) => {
-      window.location.reload()
+      this.router.navigate(['/favorites'])
     })
   }
 

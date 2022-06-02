@@ -9,7 +9,7 @@ import { AuthService } from './auth/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'DrinkUp';
-  splashPage = false;
+  splashPage = true;
   ageVerified = true;
   footer=true;
 

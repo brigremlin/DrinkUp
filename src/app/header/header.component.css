@@ -77,11 +77,23 @@ hr {
   }
 }
 
+@media(max-width:400px) {
+  .navbar-brand img {
+    max-width: 100px;
+  }
+
+  .navbar-toggler-icon{
+    height: 25px;
+    width: 30px;
+  }
+}
+
 @media (max-width:1200px) {
   .header-container {
     max-height: 20rem;
   }
 }
+
 
 
 .navbar-toggler-icon{

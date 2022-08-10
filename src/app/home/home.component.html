@@ -37,7 +37,53 @@
 
 <!-- Featured Cocktails Headline -->
 <hr class="hr7" />
-<div class="drink-container mb-5">
+  <div class="drink-container">
+    <div class="drink-grid">
+      <div class="drink-box">
+        <a
+        [routerLink]="'/cocktails/' + drinkOne.idDrink"
+        (click)="drinkDetail(drinkOne.idDrink)"
+      >
+        <img class="featured" src="{{ drinkOne.strDrinkThumb }}" alt=""
+      /></a>
+      <p class="featured-name">{{ drinkOne.strDrink }}</p>
+      </div>
+    </div>
+    <div class="drink-grid">
+      <div class="drink-box">
+        <a
+        [routerLink]="'/cocktails/' + drinkOne.idDrink"
+        (click)="drinkDetail(drinkOne.idDrink)"
+      >
+        <img class="featured" src="{{ drinkOne.strDrinkThumb }}" alt=""
+      /></a>
+      <p class="featured-name">{{ drinkOne.strDrink }}</p>
+      </div>
+    </div>
+    <div class="drink-grid">
+      <div class="drink-box">
+        <a
+        [routerLink]="'/cocktails/' + drinkOne.idDrink"
+        (click)="drinkDetail(drinkOne.idDrink)"
+      >
+        <img class="featured" src="{{ drinkOne.strDrinkThumb }}" alt=""
+      /></a>
+      <p class="featured-name">{{ drinkOne.strDrink }}</p>
+      </div>
+    </div>
+    <div class="drink-grid">
+      <div class="drink-box">
+        <a
+        [routerLink]="'/cocktails/' + drinkOne.idDrink"
+        (click)="drinkDetail(drinkOne.idDrink)"
+      >
+        <img class="featured" src="{{ drinkOne.strDrinkThumb }}" alt=""
+      /></a>
+      <p class="featured-name">{{ drinkOne.strDrink }}</p>
+      </div>
+    </div>
+  </div>
+<!-- <div class="drink-container mb-5 d-none d-lg-block">
   <div class="drink-box">
     <div class="panel">
     <div class="content">
@@ -77,7 +123,7 @@
     </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <div class="banners mt-5">
   <button class="banner-button" (click)="getPineapple(); toSearch()">

@@ -39,8 +39,8 @@ a {
   .drink-grid {
     grid-template-columns: repeat(auto-fit, minmax(7.5rem, 2fr));
   }
-
 }
+
 @media (max-width:770px) {
   .hr5::after {
     font-size: 2rem;

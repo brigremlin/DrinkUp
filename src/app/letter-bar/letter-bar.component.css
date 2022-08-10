@@ -67,9 +67,10 @@ a {
 @media (max-width:463px) {
   .letters{
     margin-top: 20%;
+    font-size: 1.5rem;
   }
   .hr6::after {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 5px;
     margin-top: 10%;
   }

@@ -6,6 +6,11 @@
     box-shadow: 5px 5px 5px rgb(0, 0, 0, .2),  -5px -5px 15px rgb(255, 255, 255, 0.1),  5px 5px 15px rgb(0, 0, 0, 0.3), -5px -5px 15px rgb(255, 255, 255, 0.1);
 }
 
+h1 {
+  font-family: "AmberWhiskey-Aged";
+  font-size: 4rem;
+}
+
 .container {
     margin-top: 100px;
     margin-bottom: 100px;
@@ -14,19 +19,18 @@
 
 label {
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 700;
 }
 
 input::placeholder {
     color: gray;
   }
-  
+
 input {
     background: #ecf0f3;
     height: 50px;
     font-size: 14px;
-    border-radius: 50px;
     box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
 }
 
@@ -38,13 +42,16 @@ p {
 
 a {
     text-decoration: none;
-    
+
 }
 
 .login-button {
     border: none;
     font-size: 1.25rem;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
 }
 
 .btn {
